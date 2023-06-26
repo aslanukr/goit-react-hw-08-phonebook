@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ export const Container = styled.div`
   color: #010101;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
