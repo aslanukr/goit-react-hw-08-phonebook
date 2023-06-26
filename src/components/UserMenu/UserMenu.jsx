@@ -23,7 +23,6 @@ export const UserMenu = () => {
   };
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
-    dispatch(logOutThunk());
   };
   return (
     <>
@@ -52,7 +51,12 @@ export const UserMenu = () => {
           open={Boolean(anchorElUser)}
           onClose={handleCloseUserMenu}
         >
-          <MenuItem onClick={handleCloseUserMenu}>
+          <MenuItem
+            onClick={() => {
+              handleCloseUserMenu();
+              dispatch(logOutThunk());
+            }}
+          >
             <Typography textAlign="center">Log Out</Typography>
           </MenuItem>
         </Menu>
