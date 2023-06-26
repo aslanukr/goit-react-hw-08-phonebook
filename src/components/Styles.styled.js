@@ -314,7 +314,7 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(66, 137, 254, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(2px);
   z-index: 1200;
 `;
