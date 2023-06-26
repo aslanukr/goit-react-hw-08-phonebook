@@ -1,24 +1,20 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 10px;
+  padding: 100px 10px 10px 10px;
   margin: 0 auto;
-  max-width: 700px;
+  max-width: 900px;
   font-size: 40px;
   color: #010101;
-
-  @media screen and (min-width: 568px) {
-    padding: 50px;
-  }
 `;
 
-export const Logo = styled.a`
+export const Logo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  font-size: 35px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   user-select: none;
   color: rgba(66, 137, 254, 255);
   text-shadow: 1px 2px 3px #063970;
@@ -29,7 +25,7 @@ export const Logo = styled.a`
 `;
 
 export const Icon = styled.img`
-  width: 90px;
+  width: 80px;
 `;
 
 export const Form = styled.form`
@@ -48,7 +44,7 @@ export const Form = styled.form`
 
 export const FormLabel = styled.label`
   display: block;
-  width: 100%;
+  width: 80%;
   margin-top: 30px;
   font-size: 15px;
   font-weight: 600;
@@ -73,7 +69,7 @@ export const Input = styled.input`
   }
 `;
 
-export const AddBtn = styled.button`
+export const FormBtn = styled.button`
   max-width: 200px;
   font-size: 20px;
 
@@ -83,15 +79,25 @@ export const AddBtn = styled.button`
   background-color: #ffffff;
   border-radius: 10px;
   border: 3px solid rgba(66, 137, 254, 255);
-  scale: 1;
-  transition: background-color, scale 250ms ease-in;
+
+  transition: background-color 250ms ease-in;
 
   &:hover,
   &:focus {
     background-color: rgba(66, 137, 254, 255);
     color: white;
-    scale: 1.01;
-    box-shadow: 1px 2px 3px #063970;
+  }
+
+  &:disabled {
+    color: gray;
+    border: 3px solid gray;
+  }
+
+  &:disabled:hover {
+    cursor: not-allowed;
+
+    background-color: white;
+    box-shadow: none;
   }
 `;
 

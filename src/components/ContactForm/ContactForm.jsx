@@ -1,4 +1,4 @@
-import { AddBtn, Form, FormLabel, Input } from 'components/Styles.styled';
+import { Form, FormBtn, FormLabel, Input } from 'components/Styles.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import {
@@ -67,7 +67,7 @@ export function ContactForm() {
             required
           />
         </FormLabel>
-        <AddBtn type="submit">Add contact</AddBtn>
+        <FormBtn type="submit">Add contact</FormBtn>
       </Form>
     </>
   );
