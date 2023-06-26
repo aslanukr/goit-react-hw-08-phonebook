@@ -1,9 +1,11 @@
-const { SectionTitle } = require('components/Styles.styled');
+import { SectionTitle } from 'components/Styles.styled';
 
 const HomePage = () => {
   return (
     <>
-      <SectionTitle>Home</SectionTitle>
+      <SectionTitle>
+        Welcome to Phonebook! <br />A secure place to store your contacts
+      </SectionTitle>
     </>
   );
 };
