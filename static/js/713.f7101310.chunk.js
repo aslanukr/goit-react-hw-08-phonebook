@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[713],{7713:function(e,t,r){r.r(t);var o=r(1267),c=r(184);t.default=function(){return(0,c.jsx)(c.Fragment,{children:(0,c.jsxs)(o.NZ,{children:["Welcome to Phonebook! ",(0,c.jsx)("br",{}),"A secure place to store your contacts"]})})}}}]);
+//# sourceMappingURL=713.f7101310.chunk.js.map
