@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import CloseIcon from '@mui/icons-material/Close';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -320,6 +321,7 @@ export const Overlay = styled.div`
 `;
 
 export const ModalLayer = styled.div`
+  position: relative;
   display: block;
   background-color: white;
   padding: 20px 20px;
@@ -327,6 +329,14 @@ export const ModalLayer = styled.div`
   box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.12), 1px 2px 2px rgba(0, 0, 0, 0.14),
     1px 4px 2px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+`;
+
+export const Close = styled(CloseIcon)`
+  cursor: pointer;
+  position: absolute;
+  color: rgba(66, 137, 254, 255);
+  top: 7px;
+  right: 7px;
 `;
 
 export const ContactsSectionWrapper = styled.div`

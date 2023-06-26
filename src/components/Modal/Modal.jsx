@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalLayer, Overlay } from '../Styles.styled';
+import { Close, ModalLayer, Overlay } from '../Styles.styled';
 import PropTypes from 'prop-types';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 
@@ -29,6 +29,7 @@ export default function Modal({ onClose }) {
   return createPortal(
     <Overlay onClick={handleBackdropClick}>
       <ModalLayer>
+        <Close onClick={() => onClose()} />
         <ContactForm onClose={onClose} />
       </ModalLayer>
     </Overlay>,

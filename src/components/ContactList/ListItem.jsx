@@ -11,13 +11,14 @@ import {
   deleteContactsThunk,
   getContactsThunk,
 } from 'redux/contacts/contactsThunk';
-import { selectIsLoading } from 'redux/selectors';
+import { selectContactsError, selectIsLoading } from 'redux/selectors';
 import Swal from 'sweetalert2';
 
 export const ListItem = ({ contact }) => {
   const { id, name, number } = contact;
 
   const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectContactsError);
 
   const dispatch = useDispatch();
 
@@ -35,11 +36,21 @@ export const ListItem = ({ contact }) => {
       if (result.isConfirmed) {
         await dispatch(deleteContactsThunk(id));
         await dispatch(getContactsThunk());
-        Swal.fire({
-          title: `${name} has been deleted!`,
-          icon: 'success',
-          confirmButtonColor: '#4289fe',
-        });
+        if (error) {
+          Swal.fire({
+            title: `Error!`,
+            text: `${error}`,
+            icon: 'error',
+            confirmButtonColor: '#4289fe',
+          });
+          return;
+        } else {
+          Swal.fire({
+            title: `${name} has been deleted!`,
+            icon: 'success',
+            confirmButtonColor: '#4289fe',
+          });
+        }
       }
     } catch (e) {
       console.log(e.message);
