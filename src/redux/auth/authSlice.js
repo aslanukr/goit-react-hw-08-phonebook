@@ -1,4 +1,9 @@
-import { logOutThunk, loginThunk, registerThunk } from './authThunk';
+import {
+  currentUserThunk,
+  logOutThunk,
+  loginThunk,
+  registerThunk,
+} from './authThunk';
 
 const { createSlice } = require('@reduxjs/toolkit');
 
@@ -27,6 +32,10 @@ const authSlice = createSlice({
         state.user = { name: null, email: null };
         state.token = null;
         state.isAuth = false;
+      })
+      .addCase(currentUserThunk.fulfilled, (state, { payload }) => {
+        state.user = payload;
+        state.isAuth = true;
       }),
 });
 
