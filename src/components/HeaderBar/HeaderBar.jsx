@@ -5,8 +5,8 @@ import { Navigation } from 'components/Navigation/Navigation';
 import { AppBar, Container, Toolbar, Typography } from '@mui/material';
 import { NavigationMenu } from 'components/Navigation/NavigationMenu';
 import { useSelector } from 'react-redux';
-import { selectIsAuth } from 'redux/auth/selectors';
 import { AuthNav } from 'components/AuthNav/AuthNav';
+import { selectIsAuth } from 'redux/selectors';
 
 const pages = [
   { name: 'Home', path: '/' },

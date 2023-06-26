@@ -1,6 +1,7 @@
 import { Box, Button } from '@mui/material';
+import { NavButton, NavList, NavListItem } from 'components/Styles.styled';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export const Navigation = ({ pages }) => {
   const navigate = useNavigate();
@@ -13,20 +14,24 @@ export const Navigation = ({ pages }) => {
           marginLeft: '10px',
         }}
       >
-        {pages.map(({ name, path }) => (
-          <Button
-            key={name}
-            onClick={() => navigate(path)}
-            sx={{
-              my: 2,
-              color: 'rgba(66, 137, 254, 255)',
-              display: 'block',
-              fontSize: '20px',
-            }}
-          >
-            {name}
-          </Button>
-        ))}
+        <NavList>
+          {pages.map(({ name, path }) => (
+            <li key={name}>
+              <NavButton
+                to={path}
+                // onClick={() => navigate(path)}
+                // sx={{
+                //   my: 2,
+                //   color: 'rgba(66, 137, 254, 255)',
+                //   display: 'block',
+                //   fontSize: '20px',
+                // }}
+              >
+                {name}
+              </NavButton>
+            </li>
+          ))}
+        </NavList>
       </Box>
     </>
   );

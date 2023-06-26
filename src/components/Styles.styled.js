@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -28,6 +29,87 @@ export const Icon = styled.img`
   width: 80px;
 `;
 
+export const NavList = styled.ul`
+  display: flex;
+  gap: 30px;
+  font-size: 25px;
+`;
+
+export const NavButton = styled(NavLink)`
+  position: relative;
+  padding: 20px 0;
+
+  font-size: 25px;
+  font-weight: 400;
+  color: rgba(66, 137, 254, 255);
+
+  &::after {
+    content: '';
+    display: inline-block;
+
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+
+    opacity: 0;
+    transform: scaleX(0.4);
+
+    transition: transform 250ms ease-in, opacity 250ms ease-in;
+
+    background-color: rgba(66, 137, 254, 255);
+  }
+
+  &:hover::after,
+  &:focus::after {
+    content: '';
+    display: inline-block;
+
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+
+    opacity: 1;
+    transform: scaleX(1);
+
+    background-color: rgba(66, 137, 254, 255);
+  }
+
+  &.active::after {
+    content: '';
+    display: inline-block;
+
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+
+    opacity: 1;
+    transform: scaleX(1);
+
+    background-color: rgba(66, 137, 254, 255);
+  }
+`;
+
+export const UserWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const UserName = styled.span`
+  font-size: 15px;
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -36,7 +118,6 @@ export const Form = styled.form`
   align-items: center;
   margin: 0 auto;
 
-  margin-top: 30px;
   font-size: 20px;
 
   user-select: none;
@@ -222,4 +303,34 @@ export const SpinnerContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(66, 137, 254, 0.1);
+  z-index: 1200;
+`;
+
+export const ModalLayer = styled.div`
+  display: block;
+  background-color: white;
+  padding: 20px 20px;
+
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.12), 1px 2px 2px rgba(0, 0, 0, 0.14),
+    1px 4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+`;
+
+export const ContactsSectionWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  align-text: center;
+  gap: 20px;
 `;
