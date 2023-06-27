@@ -3,6 +3,7 @@ import { createSelector } from '@reduxjs/toolkit';
 export const selectIsAuth = state => state.auth.isAuth;
 export const selectEmail = state => state.auth.user.email;
 export const selectName = state => state.auth.user.name;
+export const selectAuthError = state => state.auth.user.error;
 
 export const selectContacts = state => state.contacts.items;
 export const selectFilter = state => state.filter;

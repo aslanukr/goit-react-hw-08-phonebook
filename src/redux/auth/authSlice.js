@@ -11,6 +11,7 @@ const initialState = {
   user: { name: null, email: null },
   token: null,
   isAuth: false,
+  error: null,
 };
 
 const authSlice = createSlice({
@@ -27,6 +28,9 @@ const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isAuth = true;
+      })
+      .addCase(loginThunk.rejected, (state, { payload }) => {
+        state.error = payload;
       })
       .addCase(logOutThunk.fulfilled, (state, _) => {
         state.user = { name: null, email: null };
