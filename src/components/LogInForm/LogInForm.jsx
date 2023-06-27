@@ -1,17 +1,15 @@
 import { Form, FormBtn, FormLabel, Input } from 'components/Styles.styled';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginThunk } from 'redux/auth/authThunk';
-import { selectAuthError, selectName } from 'redux/selectors';
+
 import Swal from 'sweetalert2';
 
 export const LogInForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const userName = useSelector(selectName);
-  const error = useSelector(selectAuthError);
 
   const dispatch = useDispatch();
 
@@ -19,21 +17,21 @@ export const LogInForm = () => {
     e.preventDefault();
     dispatch(loginThunk({ email, password }))
       .unwrap()
-      .then(() => {
+      .then(res => {
         navigate('/contacts');
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: `Welcome, ${userName}!`,
+          title: `Welcome, ${res.user.name}!`,
           showConfirmButton: false,
           timer: 1500,
         });
       })
-      .catch(() => {
+      .catch(e => {
         Swal.fire({
           position: 'center',
           icon: 'error',
-          text: `${error}!`,
+          text: `Invalid email or password. Please, try again!`,
           showConfirmButton: false,
           timer: 1500,
         });
