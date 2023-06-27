@@ -12,11 +12,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logOutThunk } from 'redux/auth/authThunk';
 import { selectEmail } from 'redux/selectors';
 import { UserName, UserWrapper } from 'components/Styles.styled';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export const UserMenu = () => {
   // const userName = useSelector(selectName);
   const userEmail = useSelector(selectEmail);
   const [anchorElUser, setAnchorElUser] = useState(null);
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -58,7 +62,19 @@ export const UserMenu = () => {
           <MenuItem
             onClick={() => {
               handleCloseUserMenu();
-              dispatch(logOutThunk());
+              dispatch(logOutThunk())
+                .unwrap()
+                .then(() => {
+                  navigate('/');
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: `Logged out!`,
+                    text: `Thank you for using our service!`,
+                    showConfirmButton: false,
+                    timer: 2500,
+                  });
+                });
             }}
           >
             <Typography textAlign="center">Log Out</Typography>
