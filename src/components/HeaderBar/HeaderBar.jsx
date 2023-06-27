@@ -25,13 +25,13 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="https://aslanukr.github.io/goit-react-hw-08-phonebook"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1 rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
