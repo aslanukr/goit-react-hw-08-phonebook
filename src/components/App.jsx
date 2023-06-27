@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { currentUserThunk, logOutThunk } from 'redux/auth/authThunk';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
-import { selectFetchingCurrentUser } from 'redux/selectors';
+import { selectAccessToken, selectFetchingCurrentUser } from 'redux/selectors';
 import { Loader } from './Loader/Loader';
 
 const HomePage = lazy(() => import('../pages/Homepage'));
@@ -16,11 +16,14 @@ const ContactsPage = lazy(() => import('../pages/ContactsPage'));
 export default function App() {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(selectFetchingCurrentUser);
+  const isAccessToken = useSelector(selectAccessToken);
   useEffect(() => {
-    dispatch(currentUserThunk())
-      .unwrap()
-      .catch(() => dispatch(logOutThunk()));
-  }, [dispatch]);
+    if (isAccessToken) {
+      dispatch(currentUserThunk())
+        .unwrap()
+        .catch(() => dispatch(logOutThunk()));
+    }
+  }, [dispatch, isAccessToken]);
 
   return (
     !isFetchingCurrentUser && (
