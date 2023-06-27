@@ -5,6 +5,7 @@ import { ContactsSectionWrapper, SectionTitle } from 'components/Styles.styled';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { useState } from 'react';
 import { Tooltip } from '@mui/material';
+import { Helmet } from 'react-helmet';
 
 const ContactsPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -14,6 +15,9 @@ const ContactsPage = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>Contacts=Phonebook=</title>
+      </Helmet>
       <ContactsSectionWrapper>
         <SectionTitle>Contacts</SectionTitle>
         <Tooltip title="Add contact">

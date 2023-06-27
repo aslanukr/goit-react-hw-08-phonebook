@@ -51,6 +51,7 @@ export const currentUserThunk = createAsyncThunk(
 
       return response.data;
     } catch (e) {
+      token.unset();
       return thunkAPI.rejectWithValue(e.message);
     }
   }

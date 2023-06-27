@@ -2,9 +2,9 @@ import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { selectAccessToken } from 'redux/selectors';
 
-const PrivateRoute = ({ children }) => {
+const PublicRoute = ({ children }) => {
   const isAccessToken = useSelector(selectAccessToken);
-  return isAccessToken ? children : <Navigate to="/login" />;
+  return !isAccessToken ? children : <Navigate to="/" />;
 };
 
-export default PrivateRoute;
+export default PublicRoute;
