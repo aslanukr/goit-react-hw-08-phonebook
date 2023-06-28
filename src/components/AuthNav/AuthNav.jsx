@@ -1,11 +1,12 @@
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/Login';
+import { AuthBtnWrapper } from 'components/Styles.styled';
 
 export const AuthNav = () => {
   const navigate = useNavigate();
   return (
-    <>
+    <AuthBtnWrapper>
       <Button
         size="small"
         variant="outlined"
@@ -21,6 +22,6 @@ export const AuthNav = () => {
       >
         Log in
       </Button>
-    </>
+    </AuthBtnWrapper>
   );
 };
