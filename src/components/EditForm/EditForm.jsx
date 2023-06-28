@@ -7,13 +7,18 @@ import {
 } from 'redux/contacts/contactsThunk';
 import Swal from 'sweetalert2';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 
 export function EditForm({ onClose, contact }) {
-  const { id, name } = contact;
+  const { id, name, number } = contact;
   const [updatedName, setUpdatedName] = useState('');
   const [updatedNumber, setUpdatedNumber] = useState('');
+
+  useEffect(() => {
+    setUpdatedName(name);
+    setUpdatedNumber(number);
+  }, [name, number]);
 
   const contacts = useSelector(selectContacts);
   const error = useSelector(selectContactsError);
@@ -74,7 +79,7 @@ export function EditForm({ onClose, contact }) {
 
   return (
     <>
-      <SectionTitle>Edit "{name}"</SectionTitle>
+      <SectionTitle>Edit contact</SectionTitle>
       <Form onSubmit={handleSubmit} autoComplete="off">
         <FormLabel>
           Name
@@ -117,5 +122,6 @@ EditForm.propTypes = {
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
   }).isRequired,
 };
