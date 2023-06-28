@@ -7,9 +7,6 @@ import {
 import phoneIcon from '../images/phone-icon.png';
 import { Helmet } from 'react-helmet';
 import InteractiveList from 'components/HomeList/HomeList';
-// import HowToRegIcon from '@mui/icons-material/HowToReg';
-// import AddCircleIcon from '@mui/icons-material/AddCircle';
-// import DeleteIcon from '@mui/icons-material/Delete';
 
 const HomePage = () => {
   return (
