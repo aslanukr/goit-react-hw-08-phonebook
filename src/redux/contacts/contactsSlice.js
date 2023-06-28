@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { initialState } from './initialState';
 import { getContactsThunk } from './contactsThunk';
+import { logOutThunk } from 'redux/auth/authThunk';
 
 export const handlePending = state => {
   state.isLoading = true;
@@ -21,6 +22,11 @@ export const contactsSlice = createSlice({
         state.isLoading = false;
         state.error = '';
         state.items = payload;
+      })
+      .addCase(logOutThunk.fulfilled, state => {
+        state.isLoading = false;
+        state.error = '';
+        state.items = [];
       })
       .addMatcher(action => action.type.endsWith('/pending'), handlePending)
       .addMatcher(action => action.type.endsWith('/rejected'), handleRejected);
