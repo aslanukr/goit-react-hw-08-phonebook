@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Close, ModalLayer, Overlay } from '../Styles.styled';
 import PropTypes from 'prop-types';
-import { ContactForm } from 'components/ContactForm/ContactForm';
+import { EditForm } from 'components/EditForm/EditForm';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal({ onClose }) {
+export default function ModalEdit({ onClose, contact }) {
   useEffect(() => {
     document.addEventListener('keydown', handleEscape);
     return () => {
@@ -30,13 +30,17 @@ export default function Modal({ onClose }) {
     <Overlay onClick={handleBackdropClick}>
       <ModalLayer>
         <Close onClick={() => onClose()} />
-        <ContactForm onClose={onClose} />
+        <EditForm onClose={onClose} contact={contact} />
       </ModalLayer>
     </Overlay>,
     modalRoot
   );
 }
 
-Modal.propTypes = {
+ModalEdit.propTypes = {
   onClose: PropTypes.func.isRequired,
+  contact: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 };

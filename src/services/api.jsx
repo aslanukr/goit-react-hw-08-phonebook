@@ -26,10 +26,10 @@ export const deleteContact = async id => {
   return data;
 };
 
-// export const editContact = async ({ id, updatedContact }) => {
-//   const { data } = await axios.put(`/contacts/${id}`, updatedContact);
-//   return data;
-// };
+export const editContact = async (id, updatedContact) => {
+  const { data } = await axios.patch(`/contacts/${id}`, updatedContact);
+  return data;
+};
 
 export const registerUser = async credentials => {
   const { data } = await axios.post('/users/signup', credentials);

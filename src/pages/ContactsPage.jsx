@@ -1,11 +1,11 @@
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
-import Modal from 'components/Modal/Modal';
 import { ContactsSectionWrapper, SectionTitle } from 'components/Styles.styled';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { useState } from 'react';
 import { Tooltip } from '@mui/material';
 import { Helmet } from 'react-helmet';
+import ModalAdd from 'components/Modal/ModalAdd';
 
 const ContactsPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -32,7 +32,7 @@ const ContactsPage = () => {
 
       <Filter />
       <ContactList />
-      {showModal && <Modal onClose={toggleModal}></Modal>}
+      {showModal && <ModalAdd onClose={toggleModal}></ModalAdd>}
     </>
   );
 };

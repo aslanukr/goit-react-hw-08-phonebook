@@ -1,4 +1,4 @@
-import { SectionTitle } from 'components/Styles.styled';
+import { HomeTitle } from 'components/Styles.styled';
 import { Helmet } from 'react-helmet';
 
 const HomePage = () => {
@@ -7,9 +7,10 @@ const HomePage = () => {
       <Helmet>
         <title>Phonebook</title>
       </Helmet>
-      <SectionTitle>
-        Welcome to Phonebook! <br />A secure place to store your contacts
-      </SectionTitle>
+      <HomeTitle>
+        <h3>Welcome to Phonebook!</h3>
+        <p>Your secure place to store phone contacts</p>
+      </HomeTitle>
     </div>
   );
 };

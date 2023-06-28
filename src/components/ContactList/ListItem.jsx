@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { BiPhoneCall, BiTrash } from 'react-icons/bi';
+import EditIcon from '@mui/icons-material/Edit';
 import {
   ContactItem,
   ContactWrapper,
@@ -13,9 +14,21 @@ import {
 } from 'redux/contacts/contactsThunk';
 import { selectContactsError, selectIsLoading } from 'redux/selectors';
 import Swal from 'sweetalert2';
+import { useState } from 'react';
+import ModalEdit from 'components/Modal/ModalEdit';
 
 export const ListItem = ({ contact }) => {
   const { id, name, number } = contact;
+
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  const handleEdit = () => {
+    toggleModal(contact.id);
+  };
 
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectContactsError);
@@ -58,24 +71,37 @@ export const ListItem = ({ contact }) => {
   };
 
   return (
-    <ContactItem>
-      <Name>{name}</Name>
-      <ContactWrapper>
-        <PhoneWrapper href={`tel:${number}`}>
-          <BiPhoneCall color="rgba(66, 137, 254, 255)" />
-          {number}
-        </PhoneWrapper>
-        <BiTrash
-          type="button"
-          name="delete"
-          value={id}
-          onClick={handleDelete}
-          disabled={isLoading}
-          cursor={'pointer'}
-          color="red"
-        />
-      </ContactWrapper>
-    </ContactItem>
+    <>
+      <ContactItem>
+        <ContactWrapper>
+          <EditIcon
+            sx={{ fill: 'orange' }}
+            type="button"
+            cursor={'pointer'}
+            onClick={handleEdit}
+          />
+          <Name>{name}</Name>
+        </ContactWrapper>
+        <ContactWrapper>
+          <PhoneWrapper href={`tel:${number}`}>
+            <BiPhoneCall color="rgba(66, 137, 254, 255)" />
+            {number}
+          </PhoneWrapper>
+          <BiTrash
+            type="button"
+            name="delete"
+            value={id}
+            onClick={handleDelete}
+            disabled={isLoading}
+            cursor={'pointer'}
+            color="red"
+          />
+        </ContactWrapper>
+      </ContactItem>
+      {showModal && (
+        <ModalEdit onClose={toggleModal} contact={contact}></ModalEdit>
+      )}
+    </>
   );
 };
 

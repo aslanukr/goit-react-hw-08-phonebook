@@ -171,6 +171,19 @@ export const SectionTitle = styled.h2`
   color: rgba(66, 137, 254, 255);
 `;
 
+export const HomeTitle = styled.div`
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  user-select: none;
+  font-size: 25px;
+  font-weight: 700;
+  color: rgba(66, 137, 254, 255);
+`;
+
 export const FilterInput = styled.input`
   max-width: 240px;
   font-size: 18px;
@@ -280,7 +293,7 @@ export const Overlay = styled.div`
   align-items: center;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(2px);
-  z-index: 1200;
+  z-index: 100;
 `;
 
 export const ModalLayer = styled.div`
