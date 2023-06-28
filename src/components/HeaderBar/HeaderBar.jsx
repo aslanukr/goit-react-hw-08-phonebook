@@ -31,7 +31,7 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="https://aslanukr.github.io/goit-react-hw-08-phonebook"
+            href="https://aslanukr.github.io/phonebook"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },

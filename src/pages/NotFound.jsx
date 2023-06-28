@@ -15,7 +15,7 @@ const NotFound = () => {
         <hr />
       </HomeLogoWrap>
       Oops, there is no such page on our website...
-      <Button variant="contained" href="/">
+      <Button variant="contained" href="https://aslanukr.github.io/phonebook">
         Go back to our Homepage
       </Button>
     </NotFoundTitle>
