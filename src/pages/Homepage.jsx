@@ -19,7 +19,6 @@ const HomePage = () => {
         <HomeLogoWrap>
           <HomeIcon src={phoneIcon} alt="phone icon" />
           <h2>Phonebook</h2>
-          <hr />
         </HomeLogoWrap>
         <InfoTitle>A secure place to store your contacts</InfoTitle>
       </HomeTitle>
