@@ -324,6 +324,11 @@ export const ButtonWrapper = styled.div`
   gap: 5px;
 `;
 
+export const LogOutWrapper = styled.div`
+  display: flex;
+  gap: 5px;
+`;
+
 export const InfoMessage = styled.p`
   display: block;
 

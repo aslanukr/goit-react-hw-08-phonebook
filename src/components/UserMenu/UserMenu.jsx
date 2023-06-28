@@ -1,11 +1,13 @@
 import { Box, Chip, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutThunk } from 'redux/auth/authThunk';
 import { selectEmail } from 'redux/selectors';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { LogOutWrapper } from 'components/Styles.styled';
 
 export const UserMenu = () => {
   const userEmail = useSelector(selectEmail);
@@ -72,7 +74,12 @@ export const UserMenu = () => {
                 });
             }}
           >
-            <Typography textAlign="center">Log out</Typography>
+            <Typography textAlign="center">
+              <LogOutWrapper>
+                Log out
+                <LogoutIcon />
+              </LogOutWrapper>
+            </Typography>
           </MenuItem>
         </Menu>
       </Box>

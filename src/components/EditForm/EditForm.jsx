@@ -110,7 +110,7 @@ export function EditForm({ onClose, contact }) {
           disabled={!updatedName || !updatedNumber}
           variant="contained"
         >
-          Submit
+          Edit
         </Button>
       </Form>
     </>
