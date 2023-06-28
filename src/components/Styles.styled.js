@@ -102,10 +102,6 @@ export const NavButton = styled(NavLink)`
   }
 `;
 
-export const UserName = styled.span`
-  font-size: 15px;
-`;
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;

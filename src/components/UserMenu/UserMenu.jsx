@@ -1,17 +1,9 @@
-import {
-  Box,
-  IconButton,
-  Menu,
-  MenuItem,
-  Tooltip,
-  Typography,
-} from '@mui/material';
+import { Box, Chip, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutThunk } from 'redux/auth/authThunk';
 import { selectEmail } from 'redux/selectors';
-import { UserName } from 'components/Styles.styled';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -33,12 +25,12 @@ export const UserMenu = () => {
     <>
       <Box sx={{ flexGrow: 0 }}>
         <Tooltip title="User menu">
-          <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-            <AccountCircleIcon
-              sx={{ fontSize: 30, color: 'rgba(66, 137, 254, 255)' }}
-            />
-            <UserName>{userEmail}</UserName>
-          </IconButton>
+          <Chip
+            icon={<AccountCircleIcon />}
+            sx={{ color: 'rgba(66, 137, 254, 255)' }}
+            label={userEmail}
+            onClick={handleOpenUserMenu}
+          />
         </Tooltip>
 
         <Menu
