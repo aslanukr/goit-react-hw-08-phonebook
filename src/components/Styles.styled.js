@@ -201,6 +201,21 @@ export const HomeLogoWrap = styled.div`
   align-items: center;
 `;
 
+export const NotFoundTitle = styled.div`
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  user-select: none;
+  font-size: 30px;
+  font-weight: 700;
+  color: rgba(66, 137, 254, 255);
+`;
+
 export const FilterInput = styled.input`
   max-width: 240px;
   font-size: 18px;

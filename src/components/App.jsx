@@ -6,6 +6,7 @@ import { currentUserThunk, logOutThunk } from 'redux/auth/authThunk';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 import { selectAccessToken, selectFetchingCurrentUser } from 'redux/selectors';
+import NotFound from 'pages/NotFound';
 
 const HomePage = lazy(() => import('../pages/Homepage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -54,6 +55,7 @@ export default function App() {
             }
           />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     )
   );
