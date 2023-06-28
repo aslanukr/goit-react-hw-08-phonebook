@@ -30,6 +30,10 @@ export const Icon = styled.img`
   width: 80px;
 `;
 
+export const HomeIcon = styled.img`
+  width: 50px;
+`;
+
 export const NavList = styled.ul`
   display: flex;
   gap: 30px;
@@ -171,13 +175,30 @@ export const HomeTitle = styled.div`
   margin-top: 50px;
   display: flex;
   flex-direction: column;
+  text-align: center;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+
   user-select: none;
-  font-size: 25px;
+  font-size: 35px;
   font-weight: 700;
   color: rgba(66, 137, 254, 255);
+`;
+
+export const InfoTitle = styled.span`
+  text-align: center;
+
+  user-select: none;
+  font-size: 18px;
+  font-weight: 400;
+  // color: rgba(66, 137, 254, 255);
+  color: gray;
+`;
+
+export const HomeLogoWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const FilterInput = styled.input`
