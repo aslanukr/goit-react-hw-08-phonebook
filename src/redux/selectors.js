@@ -7,7 +7,6 @@ export const selectName = state => state.auth.user.name;
 export const selectAuthError = state => state.auth.error;
 export const selectFetchingCurrentUser = state =>
   state.auth.isFetchingCurrentUser;
-export const selectIsAuthLoading = state => state.auth.selectIsAuthLoading;
 
 export const selectContacts = state => state.contacts.items;
 export const selectFilter = state => state.filter;

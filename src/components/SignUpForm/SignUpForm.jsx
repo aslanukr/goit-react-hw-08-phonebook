@@ -1,4 +1,11 @@
-import { Form, FormBtn, FormLabel, Input } from 'components/Styles.styled';
+import { Button } from '@mui/material';
+import {
+  ButtonWrapper,
+  Form,
+  FormLabel,
+  InfoMessage,
+  Input,
+} from 'components/Styles.styled';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -73,10 +80,19 @@ export const SignUpForm = () => {
           onChange={handleChange}
         />
       </FormLabel>
-
-      <FormBtn type="submit" disabled={!name || !email || !password}>
-        Sign Up
-      </FormBtn>
+      <ButtonWrapper>
+        <Button
+          type="submit"
+          disabled={!name || !email || !password}
+          variant="contained"
+        >
+          Sign Up
+        </Button>
+        <InfoMessage>Already have an account?</InfoMessage>
+        <Button type="button" onClick={() => navigate('/login')} variant="text">
+          Log in
+        </Button>
+      </ButtonWrapper>
     </Form>
   );
 };

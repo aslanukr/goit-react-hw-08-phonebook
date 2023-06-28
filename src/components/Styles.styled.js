@@ -102,11 +102,6 @@ export const NavButton = styled(NavLink)`
   }
 `;
 
-export const UserWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 export const UserName = styled.span`
   font-size: 15px;
 `;
@@ -148,38 +143,6 @@ export const Input = styled.input`
     margin: -2px;
     border: 3px solid transparent;
     border-bottom: 3px solid rgba(66, 137, 254, 255);
-  }
-`;
-
-export const FormBtn = styled.button`
-  max-width: 200px;
-  font-size: 20px;
-
-  font-weight: 600;
-  color: rgba(66, 137, 254, 255);
-  padding: 10px 10px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  border: 3px solid rgba(66, 137, 254, 255);
-
-  transition: background-color 250ms ease-in;
-
-  &:hover,
-  &:focus {
-    background-color: rgba(66, 137, 254, 255);
-    color: white;
-  }
-
-  &:disabled {
-    color: gray;
-    border: 3px solid gray;
-  }
-
-  &:disabled:hover {
-    cursor: not-allowed;
-
-    background-color: white;
-    box-shadow: none;
   }
 `;
 
@@ -344,4 +307,18 @@ export const ContactsSectionWrapper = styled.div`
   align-items: center;
   align-text: center;
   gap: 20px;
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
+export const InfoMessage = styled.p`
+  display: block;
+
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(66, 137, 254, 255);
 `;

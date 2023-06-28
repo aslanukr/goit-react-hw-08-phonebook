@@ -1,4 +1,13 @@
 import {
+  handleAuthFullfilled,
+  handleAuthRejected,
+  handleCurrentUserFullfilled,
+  handleCurrentUserPending,
+  handleCurrentUserRejected,
+  handleLogOutFullfilled,
+  handleLogOutRejected,
+} from './authOperations';
+import {
   currentUserThunk,
   logOutThunk,
   loginThunk,
@@ -12,7 +21,6 @@ const initialState = {
   token: '',
   isAuth: false,
   error: '',
-  isAuthLoading: false,
   isFetchingCurrentUser: false,
 };
 
@@ -21,48 +29,15 @@ const authSlice = createSlice({
   initialState,
   extraReducers: builder =>
     builder
-      .addCase(registerThunk.fulfilled, (state, { payload }) => {
-        state.user = payload.user;
-        state.token = payload.token;
-        state.isAuth = true;
-        state.isAuthLoading = false;
-      })
-      .addCase(loginThunk.fulfilled, (state, { payload }) => {
-        state.user = payload.user;
-        state.token = payload.token;
-        state.isAuth = true;
-        state.isAuthLoading = false;
-      })
-      .addCase(loginThunk.rejected, (state, { payload }) => {
-        state.error = payload;
-        state.isAuthLoading = false;
-      })
-      .addCase(logOutThunk.fulfilled, state => {
-        state.user = { name: null, email: null };
-        state.token = '';
-        state.isAuth = false;
-        state.error = '';
-        state.isAuthLoading = false;
-      })
-      .addCase(logOutThunk.rejected, (state, { payload }) => {
-        state.token = '';
-        state.isAuth = false;
-        state.error = payload;
-        state.isAuthLoading = false;
-      })
-      .addCase(currentUserThunk.fulfilled, (state, { payload }) => {
-        state.user = payload;
-        state.isAuth = true;
-        state.isAuthLoading = false;
-        state.isFetchingCurrentUser = false;
-      })
-      .addCase(currentUserThunk.pending, state => {
-        state.isFetchingCurrentUser = true;
-      })
-      .addCase(currentUserThunk.rejected, (state, { payload }) => {
-        state.isFetchingCurrentUser = false;
-        state.error = payload;
-      }),
+      .addCase(registerThunk.fulfilled, handleAuthFullfilled)
+      .addCase(registerThunk.rejected, handleAuthRejected)
+      .addCase(loginThunk.fulfilled, handleAuthFullfilled)
+      .addCase(loginThunk.rejected, handleAuthRejected)
+      .addCase(logOutThunk.fulfilled, handleLogOutFullfilled)
+      .addCase(logOutThunk.rejected, handleLogOutRejected)
+      .addCase(currentUserThunk.fulfilled, handleCurrentUserFullfilled)
+      .addCase(currentUserThunk.pending, handleCurrentUserPending)
+      .addCase(currentUserThunk.rejected, handleCurrentUserRejected),
 });
 
 export const authReducer = authSlice.reducer;

@@ -11,12 +11,11 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutThunk } from 'redux/auth/authThunk';
 import { selectEmail } from 'redux/selectors';
-import { UserName, UserWrapper } from 'components/Styles.styled';
+import { UserName } from 'components/Styles.styled';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 export const UserMenu = () => {
-  // const userName = useSelector(selectName);
   const userEmail = useSelector(selectEmail);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -33,18 +32,22 @@ export const UserMenu = () => {
   return (
     <>
       <Box sx={{ flexGrow: 0 }}>
-        <UserWrapper>
-          <Tooltip title="User menu">
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <AccountCircleIcon
-                sx={{ fontSize: 25, color: 'rgba(66, 137, 254, 255)' }}
-              />
-              <UserName>{userEmail}</UserName>
-            </IconButton>
-          </Tooltip>
-        </UserWrapper>
+        <Tooltip title="User menu">
+          <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+            <AccountCircleIcon
+              sx={{ fontSize: 30, color: 'rgba(66, 137, 254, 255)' }}
+            />
+            <UserName>{userEmail}</UserName>
+          </IconButton>
+        </Tooltip>
+
         <Menu
-          sx={{ mt: '45px' }}
+          sx={{
+            mt: '45px',
+            '& .MuiMenuItem-root': {
+              color: 'rgba(66, 137, 254, 255)',
+            },
+          }}
           id="menu-appbar"
           anchorEl={anchorElUser}
           anchorOrigin={{
@@ -77,7 +80,7 @@ export const UserMenu = () => {
                 });
             }}
           >
-            <Typography textAlign="center">Log Out</Typography>
+            <Typography textAlign="center">Log out</Typography>
           </MenuItem>
         </Menu>
       </Box>

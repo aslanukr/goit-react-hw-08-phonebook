@@ -21,7 +21,7 @@ export const NavigationMenu = ({ pages }) => {
       <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
         <IconButton
           size="large"
-          aria-label="account of current user"
+          aria-label="navigation menu"
           aria-controls="menu-appbar"
           aria-haspopup="true"
           onClick={handleOpenNavMenu}
@@ -43,8 +43,19 @@ export const NavigationMenu = ({ pages }) => {
           }}
           open={Boolean(anchorElNav)}
           onClose={handleCloseNavMenu}
+          slotProps={{
+            paper: {
+              sx: {
+                width: '100vw',
+                maxHeight: '100vh',
+              },
+            },
+          }}
           sx={{
             display: { xs: 'block', md: 'none' },
+            '& .MuiMenuItem-root': {
+              color: 'rgba(66, 137, 254, 255)',
+            },
           }}
         >
           {pages.map(({ name, path }) => (

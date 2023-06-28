@@ -1,10 +1,4 @@
-import {
-  Form,
-  FormBtn,
-  FormLabel,
-  Input,
-  SectionTitle,
-} from 'components/Styles.styled';
+import { Form, FormLabel, Input, SectionTitle } from 'components/Styles.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectContactsError } from 'redux/selectors';
 import {
@@ -14,6 +8,7 @@ import {
 import Swal from 'sweetalert2';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { Button } from '@mui/material';
 
 export function ContactForm({ onClose }) {
   const [name, setName] = useState('');
@@ -102,9 +97,9 @@ export function ContactForm({ onClose }) {
             required
           />
         </FormLabel>
-        <FormBtn type="submit" disabled={!name || !number}>
+        <Button type="submit" disabled={!name || !number} variant="contained">
           Add contact
-        </FormBtn>
+        </Button>
       </Form>
     </>
   );
