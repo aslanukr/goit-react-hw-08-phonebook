@@ -289,7 +289,7 @@ export const Overlay = styled.div`
   align-items: center;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(2px);
-  z-index: 100;
+  z-index: 1000;
 `;
 
 export const ModalLayer = styled.div`

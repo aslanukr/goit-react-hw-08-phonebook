@@ -75,7 +75,7 @@ export const ListItem = ({ contact }) => {
       <ContactItem>
         <ContactWrapper>
           <EditIcon
-            sx={{ fill: 'orange' }}
+            sx={{ fill: 'orange', fontSize: 'medium' }}
             type="button"
             cursor={'pointer'}
             onClick={handleEdit}

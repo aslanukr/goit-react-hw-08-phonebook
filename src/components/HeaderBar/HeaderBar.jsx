@@ -17,7 +17,13 @@ function ResponsiveAppBar() {
   const isAuth = useSelector(selectIsAuth);
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: 'white' }}>
+    <AppBar
+      position="fixed"
+      sx={{
+        backgroundColor: 'white',
+        zIndex: '999',
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <NavigationMenu pages={pages} />
